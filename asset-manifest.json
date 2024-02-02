@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/baby-nanny/static/css/main.7acaea2f.css",
-    "main.js": "/baby-nanny/static/js/main.681b57f1.js",
+    "main.css": "/baby-nanny/static/css/main.f2db3b31.css",
+    "main.js": "/baby-nanny/static/js/main.9745ed53.js",
+    "static/media/home-back.jpg": "/baby-nanny/static/media/home-back.45ff0b09cd1215f452b4.jpg",
     "index.html": "/baby-nanny/index.html",
-    "main.7acaea2f.css.map": "/baby-nanny/static/css/main.7acaea2f.css.map",
-    "main.681b57f1.js.map": "/baby-nanny/static/js/main.681b57f1.js.map"
+    "main.f2db3b31.css.map": "/baby-nanny/static/css/main.f2db3b31.css.map",
+    "main.9745ed53.js.map": "/baby-nanny/static/js/main.9745ed53.js.map"
   },
   "entrypoints": [
-    "static/css/main.7acaea2f.css",
-    "static/js/main.681b57f1.js"
+    "static/css/main.f2db3b31.css",
+    "static/js/main.9745ed53.js"
   ]
 }
