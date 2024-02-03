@@ -54,5 +54,4 @@ export const Wrap = styled.div`
   bottom: 195px;
   padding: 0px;
   margin-bottom: 163px;
-  background: rgba(18, 20, 23, 0.6), url(image);
 `;

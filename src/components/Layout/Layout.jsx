@@ -9,28 +9,30 @@ import {
   NavList,
   Nav,
   Container,
+  ContainerH,
 } from './Layout.styles';
 
 export const Layout = () => {
   return (
     <Container>
-      <Header>
-        <Logo to="/"> Nanny.Services </Logo>
-        <Nav>
-          <NavList>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/nannies">Nannies</Link>
-            </li>
-          </NavList>
-          <DivButton>
-            <ButtonLogin type="button">Log In</ButtonLogin>
-            <ButtonReg type="button">Registration</ButtonReg>
-          </DivButton>
-        </Nav>
-        {/* <NavList>
+      <ContainerH>
+        <Header>
+          <Logo to="/"> Nanny.Services </Logo>
+          <Nav>
+            <NavList>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/nannies">Nannies</Link>
+              </li>
+            </NavList>
+            <DivButton>
+              <ButtonLogin type="button">Log In</ButtonLogin>
+              <ButtonReg type="button">Registration</ButtonReg>
+            </DivButton>
+          </Nav>
+          {/* <NavList>
             <li>
               <Link to="/">Home</Link>
             </li>
@@ -46,7 +48,8 @@ export const Layout = () => {
             <ButtonReg type="button">Registration</ButtonReg>
           </DivButton>
         </Nav> */}
-      </Header>
+        </Header>
+      </ContainerH>
       <main>
         <Outlet />
       </main>

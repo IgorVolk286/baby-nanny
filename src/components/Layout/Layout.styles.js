@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 
 export const Logo = styled(NavLink)`
   color: rgb(251, 251, 251);
-
   font-family: Helvetica Neue;
   font-size: 24px;
   font-weight: 500;
@@ -35,27 +34,31 @@ export const Link = styled(NavLink)`
 
 export const Container = styled.div`
   width: 1440px;
-  height: 736px;
-  padding: 0px 32px;
-  border-radius: 30px;
-  background: rgb(16, 57, 49);
-  margin: 0 auto;
+  height: auto;
+  padding: 10px 32px;
+  margin: 0px auto;
 `;
-
+export const ContainerH = styled.div`
+  width: 1440px;
+  height: auto;
+  padding: 10px 32px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  margin: 0px auto;
+  background: rgb(16, 57, 49);
+`;
 export const Header = styled.header`
-  /* outline: 1px solid red; */
-  position: absolute;
   width: 1184px;
-  height: 48px;
-  left: 250px;
+  height: auto;
 
-  top: 32px;
-  bottom: 700px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0px;
+
+  margin: 0px auto;
+
+  background: rgb(16, 57, 49);
 `;
 export const ButtonLogin = styled.button`
   color: rgb(251, 251, 251);
