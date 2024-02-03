@@ -5,7 +5,9 @@ import { ReactComponent as IconStar } from '../../img/star.svg';
 import { ReactComponent as IconPin } from '../../img/pin.svg';
 
 export const Map = styled(IconMap)``;
-export const Star = styled(IconStar)``;
+export const Star = styled(IconStar)`
+  margin-right: 4px;
+`;
 export const Pin = styled(IconPin)`
   margin: 0px 16px;
 `;

@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid';
 import { NanyItem } from '../NanyItem/NanyItem';
-import { List } from '../NannysList/NannysList.styled';
+import { List, Button } from '../NannysList/NannysList.styled';
 const holder = [
   {
     name: 'Anna Shevchenko',
@@ -811,10 +811,13 @@ const holder = [
 
 export const NannysList = () => {
   return (
-    <List>
-      {holder.map(nanny => (
-        <NanyItem nany={nanny} key={nanoid()} />
-      ))}
-    </List>
+    <>
+      <List>
+        {holder.map(nanny => (
+          <NanyItem nany={nanny} key={nanoid()} />
+        ))}
+      </List>
+      <Button type="button">Load more</Button>
+    </>
   );
 };
