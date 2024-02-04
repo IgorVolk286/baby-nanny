@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import background from '../../img/home-back.jpg';
+// import background from '../../img/home-back.jpg';
 
 export const Container = styled.div`
   width: 1440px;
@@ -9,5 +9,5 @@ export const Container = styled.div`
   margin: 0px auto;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
-  background-image: url(background);
+  /* background-image: url(background); */
 `;
