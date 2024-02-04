@@ -27,7 +27,7 @@ export const Modal = styled.div`
   padding: 64px;
   position: relative;
   border-radius: 24px;
-  background: #fff;
+  background: #ffffff;
 `;
 export const Svg = styled(IconX)`
   width: 16px;

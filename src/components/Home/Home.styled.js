@@ -48,10 +48,9 @@ export const Wrap = styled.div`
   position: absolute;
   width: 517px;
   height: 322px;
-  left: 250px;
-  right: 795px;
-  top: 250px;
-  bottom: 195px;
+  margin-left: 96px;
+  margin-top: 163px;
+
   padding: 0px;
   margin-bottom: 163px;
 `;

@@ -1,6 +1,12 @@
 import { nanoid } from 'nanoid';
 import { NanyItem } from '../NanyItem/NanyItem';
-import { List, Button } from '../NannysList/NannysList.styled';
+import {
+  List,
+  Button,
+  Label,
+  Selects,
+  Form,
+} from '../NannysList/NannysList.styled';
 const holder = [
   {
     name: 'Anna Shevchenko',
@@ -808,10 +814,29 @@ const holder = [
     rating: 4.95,
   },
 ];
-
+const options = [
+  'Z to A',
+  'Less than 10$',
+  'Greater than 10$',
+  'Popular',
+  'Not popular',
+  'Show all',
+];
 export const NannysList = () => {
   return (
     <>
+      <Form>
+        <Label>
+          <Selects name="" id="">
+            <option selected> A to Z </option>
+            {options.map(option => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </Selects>
+        </Label>
+      </Form>
       <List>
         {holder.map(nanny => (
           <NanyItem nany={nanny} key={nanoid()} />

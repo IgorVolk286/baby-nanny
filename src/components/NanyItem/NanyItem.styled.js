@@ -141,3 +141,68 @@ export const Locat = styled.li`
 export const SpanPrice = styled.span`
   color: rgb(56, 205, 62);
 `;
+
+export const Button = styled.button`
+  color: rgb(251, 251, 251);
+  font-family: Helvetica Neue;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -1%;
+  border-radius: 30px;
+  background: rgb(16, 57, 49);
+  padding: 14px 28px;
+`;
+
+export const ReadLogo = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(16, 57, 49, 0.2);
+  margin-right: 12px;
+`;
+export const ReadSpan = styled.span`
+  color: rgb(17, 16, 28);
+  font-family: Helvetica Neue;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0%;
+`;
+
+export const ReadWrap = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const ReadWrapS = styled.div`
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+`;
+
+export const H3 = styled.h3`
+  color: rgb(17, 16, 28);
+  font-family: Helvetica Neue;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0%;
+  margin-bottom: 2px;
+`;
+export const Text = styled.p`
+  color: rgba(17, 16, 28, 0.5);
+  font-family: Helvetica Neue;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0%;
+  margin-top: 16px;
+`;
+
+export const LiText = styled.li`
+  margin-bottom: 25px;
+`;

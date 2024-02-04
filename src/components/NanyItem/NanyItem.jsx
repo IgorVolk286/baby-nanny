@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Hard } from '../NanyItem/NanyItem.styled';
 import {
   Ul,
@@ -18,10 +19,26 @@ import {
   Star,
   SpanPrice,
   Pin,
+  Button,
+  ReadLogo,
+  ReadSpan,
+  ReadWrap,
+  H3,
+  ReadWrapS,
+  Text,
+  LiText,
 } from '../NanyItem/NanyItem.styled';
+import { Modalca } from '../Modal/Modal';
+import { Appointment } from 'components/Appointment/Appointment';
 
 export const NanyItem = ({ nany }) => {
   const now = new Date().getFullYear();
+
+  const [show, setShow] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleModal = e => {
+    setIsOpen(!isOpen);
+  };
 
   return (
     <LiItem>
@@ -75,7 +92,52 @@ export const NanyItem = ({ nany }) => {
             approach is hands-on, engaging, and tailored to each child's unique
             personality
           </P>
-          <ButtonRead type="button">Read more</ButtonRead>
+          <ButtonRead
+            type="button"
+            onClick={() => setShow(true)}
+            style={{ display: show ? 'none' : 'block' }}
+          >
+            Read more
+          </ButtonRead>
+
+          {show && (
+            <div>
+              <ul>
+                {nany.reviews.map(({ reviewer, rating, comment }) => {
+                  return (
+                    <LiText>
+                      <ReadWrap>
+                        <ReadLogo>
+                          <ReadSpan>{reviewer.slice(0, 1)}</ReadSpan>
+                        </ReadLogo>
+                        <ReadWrapS>
+                          <H3>{reviewer}</H3>
+                          <Locat>
+                            <Star />
+                            {rating}
+                          </Locat>
+                        </ReadWrapS>
+                      </ReadWrap>
+
+                      <Text>{comment}</Text>
+                    </LiText>
+                  );
+                })}
+              </ul>
+              {isOpen && (
+                <Modalca toggleModal={toggleModal}>
+                  <Appointment />
+                </Modalca>
+              )}
+              <Button
+                type="button"
+                onClick={() => setIsOpen(true)}
+                style={{ display: isOpen ? 'none' : 'block' }}
+              >
+                Make an appointment
+              </Button>
+            </div>
+          )}
         </WrapAbout>
       </Wrap>
     </LiItem>

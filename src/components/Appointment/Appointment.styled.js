@@ -38,7 +38,7 @@ export const InputAria = styled(Field)`
   padding: 16px;
   border: 1px solid rgba(17, 16, 28, 0.1);
   border-radius: 12px;
-  margin-bottom: 40px;
+  margin-bottom: 24px;
   &::placeholder {
     color: rgb(17, 16, 28);
     font-family: Helvetica Neue;
@@ -78,7 +78,6 @@ export const Button = styled.button`
   border-radius: 30px;
   background: rgb(16, 57, 49);
   color: #ffffff;
-  margin-top: 22px;
 
   &:hover {
     background: rgba(16, 57, 49, 0.2);
@@ -124,4 +123,6 @@ export const P = styled.p`
 `;
 export const Wrap = styled.div`
   width: 100%;
+  padding: 0px;
+  height: 740px;
 `;

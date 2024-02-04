@@ -10,9 +10,10 @@ export const Wrap = styled.div`
   justify-content: center;
   align-items: center;
   gap: 16px;
-  position: absolute;
-  bottom: 90px;
-  right: 200px;
+  margin-right: 50px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-top: 480px;
 `;
 export const Svg = styled.div`
   width: 54px;
