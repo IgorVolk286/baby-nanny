@@ -29,8 +29,7 @@ const AppointmentSchema = Yup.object().shape({
   comment: Yup.string().required('Required'),
 });
 
-export const Appointment = nany => {
-  const { avatar_url, name } = nany;
+export const Appointment = ({ nany }) => {
   return (
     <Wrap>
       <Title>Make an appointment with a babysitter</Title>
@@ -40,22 +39,26 @@ export const Appointment = nany => {
         we can match you with the perfect care partner.
       </Text>
       <Divv>
-        <Img src={avatar_url} alt="nany" />
+        <Img src={nany.avatar_url} alt="nany" />
         <Div>
           <P>Your nanny</P>
-          <H2>{name}</H2>
+          <H2>{nany.name}</H2>
         </Div>
       </Divv>
       <Formik
         initialValues={{
-          name: '',
+          address: '',
+          phone: '',
+          childAge: '',
+          time: '',
+          parents: '',
           email: '',
-          password: '',
+          comment: '',
         }}
         validationSchema={AppointmentSchema}
         onSubmit={values => {
           // same shape as initial values
-          console.log(values);
+          // console.log(values);
         }}
       >
         <Forma>

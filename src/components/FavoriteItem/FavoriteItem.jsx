@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { delNany } from '../../redux/FavoriteSlice';
 import {
   Ul,
+  HardActive,
   Img,
   Li,
   Span,
@@ -28,42 +29,30 @@ import {
   Text,
   LiText,
   Hard,
-  HardActive,
-} from '../NanyItem/NanyItem.styled';
+} from '../FavoriteItem/FavoriteItem.styled';
 import { Modalca } from '../Modal/Modal';
 import { Appointment } from 'components/Appointment/Appointment';
-import {
-  delNany,
-  selectFavorites,
-  createFavoriveNany,
-} from '../../redux/FavoriteSlice';
-import { selectIsLogin, selectNaniesList } from '../../redux/NaniesSlice';
+import { selectFavorites } from '../../redux/FavoriteSlice';
+import { useSelector, useDispatch } from 'react-redux';
 
-export const NanyItem = ({ nany }) => {
+export const FavoriteItem = ({ nany }) => {
   const now = new Date().getFullYear();
 
-  const dispatch = useDispatch();
-  const holder = useSelector(selectFavorites);
-  const isLogin = useSelector(selectIsLogin);
-  const nanyList = useSelector(selectNaniesList);
   const [show, setShow] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+
   const toggleModal = e => {
     setIsOpen(!isOpen);
   };
+  const holder = useSelector(selectFavorites);
+  const dispatch = useDispatch();
 
-  const createFavorite = e => {
+  const delFavorite = e => {
     const idCurrent = e.currentTarget.id;
+
     const index = holder.findIndex(item => item.id === idCurrent);
-    const newNany = nanyList.find(item => item.id === idCurrent);
-    console.log(newNany);
-    if (!isLogin) {
-      console.log(alert('залогинся'));
-      return;
-    } else if (index !== -1) {
+    if (index !== -1) {
       dispatch(delNany(idCurrent));
-    } else {
-      dispatch(createFavoriveNany(newNany));
     }
   };
 
@@ -85,8 +74,8 @@ export const NanyItem = ({ nany }) => {
         </Locat>
 
         <li>
-          <ButtonFavorite type="button" id={nany.id} onClick={createFavorite}>
-            {holder.some(item => item.id === nany.id) && isLogin ? (
+          <ButtonFavorite type="button" onClick={delFavorite} id={nany.id}>
+            {holder.some(item => item.id === nany.id) ? (
               <HardActive />
             ) : (
               <Hard />

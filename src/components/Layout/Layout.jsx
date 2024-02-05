@@ -13,9 +13,22 @@ import {
 } from './Layout.styles';
 import { selectIsLogin } from '../../redux/NaniesSlice.jsx';
 import { useSelector } from 'react-redux';
+import { useState } from 'react';
+import { Modalca } from 'components/Modal/Modal';
+import { Login } from 'components/Login/Login';
+import { RegistrationForm } from 'components/RegistrationForm/Registration';
 
 export const Layout = () => {
   const isLogin = useSelector(selectIsLogin);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isOpenReg, setIsOpenReg] = useState(false);
+
+  const toggleModal = e => {
+    setIsOpen(!isOpen);
+  };
+  const toggleModalReg = e => {
+    setIsOpenReg(!isOpenReg);
+  };
 
   return (
     <Container>
@@ -36,8 +49,22 @@ export const Layout = () => {
                 </li>
               </NavList>
               <DivButton>
-                <ButtonLogin type="button">Log In</ButtonLogin>
-                <ButtonReg type="button">Registration</ButtonReg>
+                <ButtonLogin type="button" onClick={() => setIsOpen(true)}>
+                  Log In
+                </ButtonLogin>
+                {isOpen && (
+                  <Modalca toggleModal={toggleModal}>
+                    <Login />
+                  </Modalca>
+                )}
+                <ButtonReg type="button" onClick={() => setIsOpenReg(true)}>
+                  Registration
+                </ButtonReg>
+                {isOpenReg && (
+                  <Modalca toggleModal={toggleModalReg}>
+                    <RegistrationForm />
+                  </Modalca>
+                )}
               </DivButton>
             </Nav>
           ) : (

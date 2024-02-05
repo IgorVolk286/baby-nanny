@@ -36,7 +36,7 @@ export const RegistrationForm = () => {
       >
         <Form>
           <label>
-            <Input name="mame" placeholder="Enter your name" />
+            <Input name="name" placeholder="Enter your name" />
           </label>
 
           <label>

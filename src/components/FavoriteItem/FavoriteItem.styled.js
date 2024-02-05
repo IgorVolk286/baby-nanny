@@ -4,6 +4,7 @@ import { ReactComponent as IconMap } from '../../img/map.svg';
 import { ReactComponent as IconStar } from '../../img/star.svg';
 import { ReactComponent as IconPin } from '../../img/pin.svg';
 import { ReactComponent as IconActive } from '../../img/active.svg';
+
 export const Map = styled(IconMap)``;
 export const Star = styled(IconStar)`
   margin-right: 4px;
@@ -22,7 +23,6 @@ export const HardActive = styled(IconActive)`
   height: 19px;
   fill: var(--main-color--);
 `;
-
 export const Ul = styled.ul`
   display: flex;
   justify-content: flex-end;
