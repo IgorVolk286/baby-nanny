@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { NanyItem } from '../NanyItem/NanyItem';
 import {
   List,
@@ -8,7 +8,7 @@ import {
   Form,
 } from '../NannysList/NannysList.styled';
 import { selectNaniesList } from '../../redux/NaniesSlice';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 const options = [
   'Z to A',
   'Less than 10$',
