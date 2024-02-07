@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { getAllNanies } from '../redux/operations';
 const holder = [
   {
     id: '1',
@@ -834,16 +835,30 @@ const holder = [
     rating: 4.95,
   },
 ];
-const NaniesSlice = createSlice({
+
+const handlePending = state => {
+  state.isLoading = true;
+};
+const handleRejected = (state, { payload }) => {
+  state.isLoading = false;
+  state.error = payload;
+};
+
+const naniesSlice = createSlice({
   name: 'nanies',
   initialState: {
-    naniesList: holder,
+    naniesList: [],
     isLoading: false,
     isLogin: false,
   },
-  reducers: {},
+  reducers: {
+    getAllNanie(state, action) {
+      state.naniesList = [...action.payload];
+    },
+  },
 });
 
-export const naniesReducer = NaniesSlice.reducer;
+export const naniesReducer = naniesSlice.reducer;
 export const selectIsLogin = state => state.nanies.isLogin;
 export const selectNaniesList = state => state.nanies.naniesList;
+export const { getAllNanie } = naniesSlice.actions;

@@ -3,6 +3,7 @@ import { Layout } from '../components/Layout/Layout';
 import { HomeDefaultPage } from 'Pages/HomePageDefault/HomeDefault';
 import { NannysPage } from 'Pages/NannysPage/NannysPage';
 import { FavoritesPage } from 'Pages/FavoritesPage/FavoritesPage';
+
 export const App = () => {
   return (
     <div>

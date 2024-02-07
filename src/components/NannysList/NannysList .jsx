@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { NanyItem } from '../NanyItem/NanyItem';
 import {
   List,
@@ -7,8 +7,12 @@ import {
   Selects,
   Form,
 } from '../NannysList/NannysList.styled';
-import { selectNaniesList } from '../../redux/NaniesSlice';
-import { useSelector } from 'react-redux';
+import { getAllNanie, selectNaniesList } from '../../redux/NaniesSlice';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { db } from '../../firebase';
+import { getDatabase, ref, child, get } from 'firebase/database';
+
 const options = [
   'Z to A',
   'Less than 10$',
@@ -20,11 +24,23 @@ const options = [
 
 export const NannysList = () => {
   const [page, setPage] = useState(1);
-  console.log(page);
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   // dispatch(fetcherAllCars(page));
-  // }, [dispatch, page]);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const dbRef = ref(getDatabase());
+    get(child(dbRef, `/`))
+      .then(snapshot => {
+        if (snapshot.exists()) {
+          console.log(snapshot.val());
+          dispatch(getAllNanie(snapshot.val()));
+        } else {
+          console.log('No data available');
+        }
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, [dispatch]);
 
   const nanyList = useSelector(selectNaniesList);
 
