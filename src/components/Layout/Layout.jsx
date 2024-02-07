@@ -48,6 +48,17 @@ export const Layout = () => {
                   <Link to="/favorites">Favorites</Link>
                 </li>
               </NavList>
+            </Nav>
+          ) : (
+            <Nav>
+              <NavList>
+                <li>
+                  <Link to="/">Home</Link>
+                </li>
+                <li>
+                  <Link to="/nannies">Nannies</Link>
+                </li>
+              </NavList>
               <DivButton>
                 <ButtonLogin type="button" onClick={() => setIsOpen(true)}>
                   Log In
@@ -65,21 +76,6 @@ export const Layout = () => {
                     <RegistrationForm />
                   </Modalca>
                 )}
-              </DivButton>
-            </Nav>
-          ) : (
-            <Nav>
-              <NavList>
-                <li>
-                  <Link to="/">Home</Link>
-                </li>
-                <li>
-                  <Link to="/nannies">Nannies</Link>
-                </li>
-              </NavList>
-              <DivButton>
-                <ButtonLogin type="button">Log In</ButtonLogin>
-                <ButtonReg type="button">Registration</ButtonReg>
               </DivButton>
             </Nav>
           )}

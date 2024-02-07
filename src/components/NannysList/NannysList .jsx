@@ -7,7 +7,11 @@ import {
   Selects,
   Form,
 } from '../NannysList/NannysList.styled';
-import { getAllNanie, selectNaniesList } from '../../redux/NaniesSlice';
+import {
+  getAllNanie,
+  selectNaniesList,
+  setLoadind,
+} from '../../redux/NaniesSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { db } from '../../firebase';
@@ -23,15 +27,16 @@ const options = [
 ];
 
 export const NannysList = () => {
-  const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState(3);
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(setLoadind());
     const dbRef = ref(getDatabase());
     get(child(dbRef, `/`))
       .then(snapshot => {
         if (snapshot.exists()) {
-          console.log(snapshot.val());
+          // console.log(snapshot.val());
           dispatch(getAllNanie(snapshot.val()));
         } else {
           console.log('No data available');
@@ -43,7 +48,7 @@ export const NannysList = () => {
   }, [dispatch]);
 
   const nanyList = useSelector(selectNaniesList);
-
+  const paglist = nanyList.slice(0, limit);
   return (
     <>
       <Form>
@@ -59,13 +64,15 @@ export const NannysList = () => {
         </Label>
       </Form>
       <List>
-        {nanyList.map(nanny => (
+        {paglist.map(nanny => (
           <NanyItem nany={nanny} key={nanny.id} />
         ))}
       </List>
-      <Button type="button" onClick={() => setPage(page + 1)}>
-        Load more
-      </Button>
+      {paglist.length !== nanyList.length && (
+        <Button type="button" onClick={() => setLimit(limit + 3)}>
+          Load more
+        </Button>
+      )}
     </>
   );
 };

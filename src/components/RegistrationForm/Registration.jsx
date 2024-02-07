@@ -1,7 +1,13 @@
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { Button, Title, P, Input } from './RegistrationForm.styled';
-
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from 'firebase/auth';
+import { setUser } from '../../redux/UserSlice';
+import { useDispatch } from 'react-redux';
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
     .min(2, 'Too Short!')
@@ -15,6 +21,28 @@ const SignupSchema = Yup.object().shape({
 });
 
 export const RegistrationForm = () => {
+  const dispatch = useDispatch();
+  const regUser = values => {
+    const auth = getAuth();
+    createUserWithEmailAndPassword(auth, values.email, values.password)
+      .then(userCredential => {
+        const user = userCredential.user;
+        console.log(user);
+        const newUser = {
+          name: values.name,
+          id: user.uid,
+          email: user.email,
+          token: user.accessToken,
+        };
+        console.log(newUser);
+        dispatch(setUser(newUser));
+      })
+      .catch(error => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
+  };
+
   return (
     <div>
       <Title>Registration</Title>
@@ -29,10 +57,12 @@ export const RegistrationForm = () => {
           password: '',
         }}
         validationSchema={SignupSchema}
-        onSubmit={values => {
-          // same shape as initial values
-          console.log(values);
-        }}
+        onSubmit={values => regUser(values)}
+
+        //   values => {
+        //   // same shape as initial values
+        //   console.log(values);
+        // }}
       >
         <Form>
           <label>

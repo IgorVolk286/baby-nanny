@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+import { getAuth } from 'firebase/auth';
 const firebaseConfig = {
   apiKey: 'AIzaSyA8lhOdZQMEDAtBO9q45qscLnHdFQyGNhY',
   authDomain: 'nany-servise.firebaseapp.com',
@@ -12,11 +13,6 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
+const auth = getAuth(app);
 
-async function getAllNanies(db) {
-  const naniesCol = collection(db, 'nanies');
-  const naniesSnapshot = await getDocs(naniesCol);
-  const naniesList = naniesSnapshot.docs.map(doc => doc.data());
-  return naniesList;
-}
+export const db = getFirestore(app);

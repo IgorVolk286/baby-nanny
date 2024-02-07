@@ -1,7 +1,7 @@
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { Button, Title, P, Input } from './login.styled';
-
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 const SignInSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Required'),
   password: Yup.string()
@@ -11,6 +11,19 @@ const SignInSchema = Yup.object().shape({
 });
 
 export const Login = () => {
+  const logIn = values => {
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, values.email, values.password)
+      .then(userCredential => {
+        const user = userCredential.user;
+        console.log(user);
+      })
+      .catch(error => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
+  };
+
   return (
     <div>
       <Title>Log In</Title>
@@ -24,10 +37,7 @@ export const Login = () => {
           password: '',
         }}
         validationSchema={SignInSchema}
-        onSubmit={values => {
-          // same shape as initial values
-          console.log(values);
-        }}
+        onSubmit={values => logIn(values)}
       >
         <Form>
           <label>
