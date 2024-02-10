@@ -478,7 +478,7 @@ const holder = [
 export const favoriteSlice = createSlice({
   name: 'favorite',
   initialState: {
-    favorites: holder,
+    favorites: [],
     isLoading: false,
     isLogin: true,
   },

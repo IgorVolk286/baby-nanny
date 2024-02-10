@@ -7,17 +7,29 @@ export const userSlice = createSlice({
     id: '',
     token: '',
     email: '',
+    isLogin: false,
   },
   reducers: {
     setUser(state, action) {
-      state.name = action.payload.name;
       state.id = action.payload.id;
       state.token = action.payload.token;
       state.email = action.payload.email;
+      state.isLogin = true;
+      // localStorage.setItem('token', action.payload.token);
+    },
+    refreshuser(state, action) {
+      state.isLogin = true;
+    },
+
+    logOut(state, action) {
+      state.id = '';
+      state.token = '';
+      state.email = '';
+      state.isLogin = false;
     },
   },
-  delUser(state) {},
 });
 
-export const { setUser } = userSlice.actions;
+export const { setUser, logOut } = userSlice.actions;
 export const userReducer = userSlice.reducer;
+export const selectIsLogin = state => state.user.isLogin;

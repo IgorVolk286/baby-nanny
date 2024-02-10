@@ -21,26 +21,31 @@ const SignupSchema = Yup.object().shape({
 });
 
 export const RegistrationForm = () => {
-  const dispatch = useDispatch();
   const regUser = values => {
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, values.email, values.password)
       .then(userCredential => {
         const user = userCredential.user;
         console.log(user);
-        const newUser = {
-          name: values.name,
-          id: user.uid,
-          email: user.email,
-          token: user.accessToken,
-        };
-        console.log(newUser);
-        dispatch(setUser(newUser));
       })
       .catch(error => {
         const errorCode = error.code;
         const errorMessage = error.message;
       });
+
+    // updateProfile(auth.currentUser, {
+    //   displayName: `trdgfdvcbvbn`,
+    // })
+    //   .then(() => {
+    //     // Profile updated!
+    //     // ...
+    //     const user = auth.currentUser;
+    //     console.log(user);
+    //   })
+    //   .catch(error => {
+    //     // An error occurred
+    //     // ...
+    //   });
   };
 
   return (
@@ -58,11 +63,6 @@ export const RegistrationForm = () => {
         }}
         validationSchema={SignupSchema}
         onSubmit={values => regUser(values)}
-
-        //   values => {
-        //   // same shape as initial values
-        //   console.log(values);
-        // }}
       >
         <Form>
           <label>

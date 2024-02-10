@@ -1,4 +1,5 @@
-import { Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
+import { getAuth, signOut } from 'firebase/auth';
 import {
   Logo,
   Link,
@@ -10,15 +11,22 @@ import {
   Nav,
   Container,
   ContainerH,
+  IconLogoUser,
+  IconDiv,
+  ButtonlogOut,
+  Name,
+  LogoNany,
+  Burger,
 } from './Layout.styles';
-import { selectIsLogin } from '../../redux/NaniesSlice.jsx';
-import { useSelector } from 'react-redux';
-import { useState } from 'react';
+import { selectIsLogin, logOut } from '../../redux/UserSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
 import { Modalca } from 'components/Modal/Modal';
 import { Login } from 'components/Login/Login';
 import { RegistrationForm } from 'components/RegistrationForm/Registration';
 
 export const Layout = () => {
+  const dispatch = useDispatch();
   const isLogin = useSelector(selectIsLogin);
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenReg, setIsOpenReg] = useState(false);
@@ -29,11 +37,22 @@ export const Layout = () => {
   const toggleModalReg = e => {
     setIsOpenReg(!isOpenReg);
   };
+  const logOuts = e => {
+    const auth = getAuth();
+    signOut(auth)
+      .then(() => {
+        dispatch(logOut());
+      })
+      .catch(error => {});
+  };
 
   return (
     <Container>
       <ContainerH>
         <Header>
+          <NavLink to="/">
+            <LogoNany />
+          </NavLink>
           <Logo to="/"> Nanny.Services </Logo>
           {isLogin ? (
             <Nav>
@@ -48,6 +67,14 @@ export const Layout = () => {
                   <Link to="/favorites">Favorites</Link>
                 </li>
               </NavList>
+              <Burger />
+              <DivButton>
+                <IconDiv>
+                  <IconLogoUser />
+                </IconDiv>
+                <Name>name</Name>
+                <ButtonlogOut onClick={logOuts}>Log Out</ButtonlogOut>
+              </DivButton>
             </Nav>
           ) : (
             <Nav>
@@ -59,6 +86,7 @@ export const Layout = () => {
                   <Link to="/nannies">Nannies</Link>
                 </li>
               </NavList>
+              <Burger />
               <DivButton>
                 <ButtonLogin type="button" onClick={() => setIsOpen(true)}>
                   Log In

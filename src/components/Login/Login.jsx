@@ -2,6 +2,9 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { Button, Title, P, Input } from './login.styled';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { setUser } from '../../redux/UserSlice';
+import { useDispatch } from 'react-redux';
+
 const SignInSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Required'),
   password: Yup.string()
@@ -11,12 +14,19 @@ const SignInSchema = Yup.object().shape({
 });
 
 export const Login = () => {
+  const dispatch = useDispatch();
   const logIn = values => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, values.email, values.password)
       .then(userCredential => {
         const user = userCredential.user;
         console.log(user);
+        const newUser = {
+          id: user.uid,
+          token: user.accessToken,
+          email: user.email,
+        };
+        dispatch(setUser(newUser));
       })
       .catch(error => {
         const errorCode = error.code;

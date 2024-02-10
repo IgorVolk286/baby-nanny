@@ -37,8 +37,8 @@ import {
   selectFavorites,
   createFavoriveNany,
 } from '../../redux/FavoriteSlice';
-import { selectIsLogin, selectNaniesList } from '../../redux/NaniesSlice';
-
+import { selectNaniesList } from '../../redux/NaniesSlice';
+import { selectIsLogin } from '../../redux/UserSlice';
 export const NanyItem = ({ nany }) => {
   const now = new Date().getFullYear();
 

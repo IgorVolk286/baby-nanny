@@ -5,7 +5,6 @@ const naniesSlice = createSlice({
   initialState: {
     naniesList: [],
     isLoading: false,
-    isLogin: false,
   },
   reducers: {
     setLoadind(state) {
@@ -19,6 +18,6 @@ const naniesSlice = createSlice({
 });
 
 export const naniesReducer = naniesSlice.reducer;
-export const selectIsLogin = state => state.nanies.isLogin;
+
 export const selectNaniesList = state => state.nanies.naniesList;
 export const { getAllNanie, setLoadind } = naniesSlice.actions;
