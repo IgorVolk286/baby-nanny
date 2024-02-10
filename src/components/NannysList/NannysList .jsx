@@ -14,7 +14,7 @@ import {
 } from '../../redux/NaniesSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
-// import { db } from '../../firebase';
+import { db } from '../../firebase';
 import { getDatabase, ref, child, get } from 'firebase/database';
 
 const options = [
@@ -29,7 +29,7 @@ const options = [
 export const NannysList = () => {
   const [limit, setLimit] = useState(3);
   const dispatch = useDispatch();
-
+  console.log(db);
   useEffect(() => {
     dispatch(setLoadind());
     const dbRef = ref(getDatabase());
