@@ -1,13 +1,9 @@
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { Button, Title, P, Input } from './RegistrationForm.styled';
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  updateProfile,
-} from 'firebase/auth';
-import { setUser } from '../../redux/UserSlice';
-import { useDispatch } from 'react-redux';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+// import { setUser } from '../../redux/UserSlice';
+// import { useDispatch } from 'react-redux';
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
     .min(2, 'Too Short!')
@@ -29,8 +25,8 @@ export const RegistrationForm = () => {
         console.log(user);
       })
       .catch(error => {
-        const errorCode = error.code;
         const errorMessage = error.message;
+        console.log(errorMessage);
       });
 
     // updateProfile(auth.currentUser, {

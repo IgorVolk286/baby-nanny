@@ -20,7 +20,7 @@ import {
 } from './Layout.styles';
 import { selectIsLogin, logOut } from '../../redux/UserSlice';
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Modalca } from 'components/Modal/Modal';
 import { Login } from 'components/Login/Login';
 import { RegistrationForm } from 'components/RegistrationForm/Registration';

@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { naniesReducer } from './NaniesSlice';
-import { favoriteReducer, favoriteSlice } from './FavoriteSlice';
-import { userReducer, userSlice } from '../redux/UserSlice';
+import { favoriteSlice } from './FavoriteSlice';
+import { userReducer } from '../redux/UserSlice';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 

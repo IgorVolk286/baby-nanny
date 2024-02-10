@@ -14,7 +14,7 @@ import {
 } from '../../redux/NaniesSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { db } from '../../firebase';
+// import { db } from '../../firebase';
 import { getDatabase, ref, child, get } from 'firebase/database';
 
 const options = [
