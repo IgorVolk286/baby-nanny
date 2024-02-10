@@ -156,7 +156,7 @@ export const Link = styled(NavLink)`
 `;
 
 export const Container = styled.div`
-  width: 320px;
+  width: 100%;
   padding: 10px 20px;
   margin: 0px auto;
   height: auto;
