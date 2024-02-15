@@ -112,6 +112,7 @@ export const Layout = () => {
                   >
                     Log In
                   </ButtonLogin>
+
                   <ButtonReg
                     type="button"
                     onClick={() => {
