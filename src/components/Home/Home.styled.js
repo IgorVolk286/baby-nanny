@@ -9,7 +9,7 @@ export const Title = styled.h1`
   line-height: 40px;
   letter-spacing: -3%;
   margin-bottom: 28px;
-  width: 250px;
+  width: 240px;
 
   @media (min-width: 768px) {
     color: rgb(251, 251, 251);
@@ -111,13 +111,13 @@ export const ButtonGet = styled.button`
 export const Wrap = styled.div`
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: column;
   position: absolute;
-  width: 100%;
+  width: 320px;
   height: 322px;
   margin-top: 30px;
-  padding: 0px;
+  padding: 20px;
   margin-bottom: 30px;
   padding: 10px;
 

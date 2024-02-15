@@ -1,6 +1,6 @@
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import { Button, Title, P, Input } from './login.styled';
+import { Button, Title, P, Input, Wrap } from './login.styled';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { setUser } from '../../redux/UserSlice';
 import { useDispatch } from 'react-redux';
@@ -35,7 +35,7 @@ export const Login = () => {
   };
 
   return (
-    <div>
+    <Wrap>
       <Title>Log In</Title>
       <P>
         Welcome back! Please enter your credentials to access your account and
@@ -59,6 +59,6 @@ export const Login = () => {
           <Button type="submit">Log in</Button>
         </Form>
       </Formik>
-    </div>
+    </Wrap>
   );
 };

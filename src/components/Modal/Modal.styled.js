@@ -22,23 +22,21 @@ export const ButtonClose = styled.button`
 `;
 
 export const Modal = styled.div`
-  width: 600px;
+  width: 300px;
   height: auto;
-  padding: 64px;
+  padding: 15px;
   position: relative;
-  border-radius: 24px;
+  border-radius: 15px;
   background: #ffffff;
+
+  @media (min-width: 768px) {
+    width: 600px;
+    height: auto;
+    padding: 64px;
+    border-radius: 24px;
+  }
 `;
 export const Svg = styled(IconX)`
   width: 16px;
   height: 16px;
-`;
-export const ButtonCall = styled.button`
-  display: flex;
-  padding: 12px 50px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 12px;
-  background: #3470ff;
-  margin: 0px;
 `;

@@ -22,6 +22,8 @@ a:focus,a:active{outline: none;}
 nav,footer,header,aside{display: block;}
 
 html,body{
+	margin-left: auto;
+	margin-right: auto;
 	font-family: 'Roboto', sans-serif;
 	background-color:#ffffff;
 	height: 100%;

@@ -7,6 +7,7 @@ import { ReactComponent as IconBurger } from '../../img/burger-menu-svgrepo-com.
 export const Burger = styled(IconBurger)`
   width: 15px;
   height: 15px;
+  fill: #ffffff;
 
   @media (min-width: 768px) {
     display: none;
@@ -159,16 +160,18 @@ export const Container = styled.div`
   width: 100%;
   padding: 10px 20px;
   margin: 0px auto;
+  margin-right: auto;
+  margin-left: auto;
   height: auto;
 
   @media (min-width: 768px) {
-    width: 768px;
+    width: 100%;
     height: auto;
     padding: 10px 32px;
   }
 
   @media (min-width: 1440px) {
-    width: 1440px;
+    width: 100%;
     padding: 10px 32px;
   }
 `;
@@ -227,24 +230,26 @@ export const Header = styled.header`
   }
 `;
 export const ButtonLogin = styled.button`
-  background-color: transparent;
+  background-color: var(--main-color--);
+  color: #ffffff;
+  font-family: Helvetica Neue;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 15px;
+  letter-spacing: -1%;
+  border-radius: 5px;
+  margin-bottom: 10px;
 
   @media (min-width: 768px) {
-    display: block;
-    color: rgb(251, 251, 251);
-    font-family: Helvetica Neue;
     font-size: 14px;
-    font-weight: 500;
-    line-height: 15px;
-    letter-spacing: -1%;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
     padding: 10px 30px;
     border: 1px solid rgba(251, 251, 251, 0.4);
     border-radius: 20px;
+    margin-bottom: 0px;
+    &:hover {
+      color: var(--main-color--);
+      background-color: #ffffff;
+    }
   }
 
   @media (min-width: 1440px) {
@@ -255,19 +260,25 @@ export const ButtonLogin = styled.button`
   }
 `;
 export const ButtonReg = styled.button`
+  background-color: var(--main-color--);
+  color: #ffffff;
+  font-family: Helvetica Neue;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 15px;
+  letter-spacing: -1%;
+  border-radius: 5px;
+
   @media (min-width: 768px) {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    font-size: 16px;
+    line-height: 20px;
     padding: 10px 30px;
     margin: 0px 8px;
     border-radius: 20px;
-    background: rgb(16, 57, 49);
     border: 1px solid #ffffff;
     &:hover {
-      background: rgba(16, 57, 49, 0.2);
-      color: rgb(16, 57, 49);
+      color: var(--main-color--);
+      background-color: #ffffff;
     }
   }
   @media (min-width: 1440px) {
@@ -329,4 +340,25 @@ export const Name = styled.p`
     letter-spacing: -1%;
     margin-right: 24px;
   }
+`;
+
+export const Menu = styled.div`
+  width: 100px;
+  height: auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 10px;
+  position: absolute;
+  top: 50px;
+  right: 60px;
+  @media (min-width: 768px) {
+    display: none;
+  }
+`;
+
+export const ButtonMenu = styled.button`
+  background: transparent;
+  position: relative;
 `;

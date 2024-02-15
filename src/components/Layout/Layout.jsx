@@ -17,20 +17,25 @@ import {
   Name,
   LogoNany,
   Burger,
+  Menu,
+  ButtonMenu,
 } from './Layout.styles';
 import { selectIsLogin, logOut } from '../../redux/UserSlice';
 import { useSelector, useDispatch } from 'react-redux';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Modalca } from 'components/Modal/Modal';
 import { Login } from 'components/Login/Login';
 import { RegistrationForm } from 'components/RegistrationForm/Registration';
+import { useOutSide } from '../../hooks/outSide';
 
 export const Layout = () => {
   const dispatch = useDispatch();
   const isLogin = useSelector(selectIsLogin);
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenReg, setIsOpenReg] = useState(false);
-
+  const [menu, setMenu] = useState(false);
+  const [isActive, setisActive] = useState(false);
+  console.log(isActive);
   const toggleModal = e => {
     setIsOpen(!isOpen);
   };
@@ -45,7 +50,14 @@ export const Layout = () => {
       })
       .catch(error => {});
   };
-
+  const menuRef = useRef(null);
+  useOutSide(menuRef, () => {
+    setisActive(false);
+  });
+  const menuHandler = () => {
+    setMenu(!menu);
+    // setisActive(!isActive);
+  };
   return (
     <Container>
       <ContainerH>
@@ -67,7 +79,7 @@ export const Layout = () => {
                   <Link to="/favorites">Favorites</Link>
                 </li>
               </NavList>
-              <Burger />
+
               <DivButton>
                 <IconDiv>
                   <IconLogoUser />
@@ -86,7 +98,32 @@ export const Layout = () => {
                   <Link to="/nannies">Nannies</Link>
                 </li>
               </NavList>
-              <Burger />
+              <ButtonMenu type="button" onClick={menuHandler}>
+                <Burger />
+              </ButtonMenu>
+              {menu && (
+                <Menu ref={menuRef}>
+                  <ButtonLogin
+                    type="button"
+                    onClick={() => {
+                      setIsOpen(true);
+                      setMenu(!menu);
+                    }}
+                  >
+                    Log In
+                  </ButtonLogin>
+                  <ButtonReg
+                    type="button"
+                    onClick={() => {
+                      setIsOpenReg(true);
+                      setMenu(!menu);
+                    }}
+                  >
+                    Registration
+                  </ButtonReg>
+                </Menu>
+              )}
+
               <DivButton>
                 <ButtonLogin type="button" onClick={() => setIsOpen(true)}>
                   Log In
