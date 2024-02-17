@@ -4,7 +4,7 @@ import { Field, Form } from 'formik';
 export const Input = styled(Field)`
   display: block;
   width: 270px;
-  height: 35px;
+  height: 30px;
   padding: 5px;
   border: 1px solid rgba(17, 16, 28, 0.1);
   border-radius: 10px;
@@ -30,7 +30,7 @@ export const Input = styled(Field)`
 `;
 export const InputOne = styled(Field)`
   width: 270px;
-  height: 35px;
+  height: 30px;
   padding: 5px;
   border: 1px solid rgba(17, 16, 28, 0.1);
   border-radius: 10px;
@@ -58,7 +58,7 @@ export const InputOne = styled(Field)`
 
 export const InputAria = styled(Field)`
   width: 270px;
-  height: 80px;
+  height: 70px;
   padding: 5px;
   border: 1px solid rgba(17, 16, 28, 0.1);
   border-radius: 10px;
@@ -89,9 +89,9 @@ export const InputAria = styled(Field)`
 export const Title = styled.h1`
   color: rgb(17, 16, 28);
   font-family: Helvetica Neue;
-  font-size: 36px;
+  font-size: 30px;
   font-weight: 500;
-  line-height: 36px;
+  line-height: 30px;
   letter-spacing: -2%;
   margin-bottom: 10px;
 
@@ -108,7 +108,7 @@ export const Text = styled.p`
   font-weight: 400;
   line-height: 18px;
   letter-spacing: 0%;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 
   @media (min-width: 768px) {
     font-size: 16px;
@@ -146,8 +146,13 @@ export const Button = styled.button`
 export const Forma = styled(Form)`
   display: flex;
   flex-wrap: wrap;
-  margin-top: 40px;
-  gap: 8px;
+  margin-top: 15px;
+  gap: 4px;
+
+  @media (min-width: 768px) {
+    margin-top: 40px;
+    gap: 8px;
+  }
 `;
 export const Div = styled.div`
   display: flex;
