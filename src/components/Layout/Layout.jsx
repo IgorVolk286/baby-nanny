@@ -33,9 +33,9 @@ export const Layout = () => {
   const isLogin = useSelector(selectIsLogin);
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenReg, setIsOpenReg] = useState(false);
+  console.log(isOpenReg);
   const [menu, setMenu] = useState(false);
-  const [isActive, setisActive] = useState(false);
-  console.log(isActive);
+
   const toggleModal = e => {
     setIsOpen(!isOpen);
   };
@@ -52,12 +52,9 @@ export const Layout = () => {
   };
   const menuRef = useRef(null);
   useOutSide(menuRef, () => {
-    setisActive(false);
+    setMenu(false);
   });
-  const menuHandler = () => {
-    setMenu(!menu);
-    // setisActive(!isActive);
-  };
+
   return (
     <Container>
       <ContainerH>
@@ -98,7 +95,7 @@ export const Layout = () => {
                   <Link to="/nannies">Nannies</Link>
                 </li>
               </NavList>
-              <ButtonMenu type="button" onClick={menuHandler}>
+              <ButtonMenu type="button" onClick={() => setMenu(!menu)}>
                 <Burger />
               </ButtonMenu>
               {menu && (
@@ -113,13 +110,7 @@ export const Layout = () => {
                     Log In
                   </ButtonLogin>
 
-                  <ButtonReg
-                    type="button"
-                    onClick={() => {
-                      setIsOpenReg(true);
-                      setMenu(!menu);
-                    }}
-                  >
+                  <ButtonReg type="button" onClick={() => setIsOpenReg(true)}>
                     Registration
                   </ButtonReg>
                 </Menu>

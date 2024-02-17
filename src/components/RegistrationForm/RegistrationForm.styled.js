@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import { Field } from 'formik';
-export const Wrap = styled.div``;
+export const Wrap = styled.div`
+  width: 100%;
+  height: auto;
+`;
 
 export const Title = styled.h1`
   color: rgb(17, 16, 28);

@@ -102,19 +102,19 @@ export const NanyItem = ({ nany }) => {
           <Title>{nany.name}</Title>
           <UlAbout>
             <Li>
-              Age:<Span>{now - new Date(nany.birthday).getFullYear()}</Span>
+              Age: <Span>{now - new Date(nany.birthday).getFullYear()}</Span>
             </Li>
             <Li>
-              Experience:<Span>{nany.experience}</Span>
+              Experience: <Span>{nany.experience}</Span>
             </Li>
             <Li>
               Kids Age: <Span>{nany.kids_age}</Span>
             </Li>
             <Li>
-              Characters:<Span>{nany.characters.join(',')}</Span>
+              Characters: <Span>{nany.characters.join(',')}</Span>
             </Li>
             <Li>
-              Education:<Span>{nany.education}</Span>
+              Education: <Span>{nany.education}</Span>
             </Li>
           </UlAbout>
           <P>

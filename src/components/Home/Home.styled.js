@@ -88,6 +88,10 @@ export const ButtonGet = styled.button`
   border: 1px solid rgba(251, 251, 251, 0.4);
   border-radius: 30px;
   background: transparent;
+  transform: scale(1);
+  &:hover {
+    transform: scale(1.1);
+  }
 
   @media (min-width: 768px) {
     display: block;

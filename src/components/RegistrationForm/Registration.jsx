@@ -1,6 +1,6 @@
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import { Button, Title, P, Input } from './RegistrationForm.styled';
+import { Button, Title, P, Input, Wrap } from './RegistrationForm.styled';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 // import { setUser } from '../../redux/UserSlice';
 // import { useDispatch } from 'react-redux';
@@ -45,7 +45,7 @@ export const RegistrationForm = () => {
   };
 
   return (
-    <div>
+    <Wrap>
       <Title>Registration</Title>
       <P>
         Thank you for your interest in our platform! In order to register, we
@@ -74,6 +74,6 @@ export const RegistrationForm = () => {
           <Button type="submit">Sign Up</Button>
         </Form>
       </Formik>
-    </div>
+    </Wrap>
   );
 };

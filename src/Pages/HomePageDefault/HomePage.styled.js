@@ -14,14 +14,14 @@ export const Container = styled.div`
   align-items: center;
 
   @media (min-width: 768px) {
-    width: 768px;
+    width: 100%;
     padding: 10px 32px;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
     align-items: flex-start;
   }
   @media (min-width: 1440px) {
-    width: 1440px;
+    /* width: 1440px; */
     height: 700px;
   }
 `;
