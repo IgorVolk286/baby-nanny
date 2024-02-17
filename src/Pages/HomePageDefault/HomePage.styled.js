@@ -21,7 +21,7 @@ export const Container = styled.div`
     align-items: flex-start;
   }
   @media (min-width: 1440px) {
-    /* width: 1440px; */
-    height: 700px;
+    width: 1440px;
+    height: auto;
   }
 `;

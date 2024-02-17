@@ -83,18 +83,14 @@ export const IconDiv = styled.div`
   }
 `;
 export const ButtonlogOut = styled.button`
-  display: none;
-  /* color: rgb(251, 251, 251);
+  color: #ffffff;
   font-family: Helvetica Neue;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 500;
   line-height: 20px;
   letter-spacing: -1%;
-  padding: 14px 39px;
-  box-sizing: border-box;
-  border: 1px solid rgba(251, 251, 251, 0.4);
-  border-radius: 30px;
-  background-color: transparent; */
+  border-radius: 5px;
+  background-color: var(--main-color--);
 
   @media (min-width: 768px) {
     display: block;
@@ -105,6 +101,9 @@ export const ButtonlogOut = styled.button`
     line-height: 15px;
     padding: 10px 30px;
     border-radius: 20px;
+    padding: 14px 39px;
+    border: 1px solid rgba(251, 251, 251, 0.4);
+    border-radius: 30px;
   }
   @media (min-width: 1440px) {
     color: rgb(251, 251, 251);

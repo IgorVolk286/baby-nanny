@@ -27,8 +27,9 @@ import { Modalca } from 'components/Modal/Modal';
 import { Login } from 'components/Login/Login';
 import { RegistrationForm } from 'components/RegistrationForm/Registration';
 import { useOutSide } from '../../hooks/outSide';
-
+import { useNavigate } from 'react-router-dom';
 export const Layout = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const isLogin = useSelector(selectIsLogin);
   const [isOpen, setIsOpen] = useState(false);
@@ -47,6 +48,9 @@ export const Layout = () => {
     signOut(auth)
       .then(() => {
         dispatch(logOut());
+        navigate('/', { replace: true });
+        setMenu(false);
+        setIsOpen(false);
       })
       .catch(error => {});
   };
@@ -76,7 +80,22 @@ export const Layout = () => {
                   <Link to="/favorites">Favorites</Link>
                 </li>
               </NavList>
-
+              <ButtonMenu type="button" onClick={() => setMenu(!menu)}>
+                <Burger />
+              </ButtonMenu>
+              {menu && (
+                <Menu ref={menuRef}>
+                  <ButtonlogOut
+                    type="button"
+                    onClick={() => {
+                      setMenu(!menu);
+                      logOuts();
+                    }}
+                  >
+                    Log Out
+                  </ButtonlogOut>
+                </Menu>
+              )}
               <DivButton>
                 <IconDiv>
                   <IconLogoUser />
