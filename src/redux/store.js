@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { naniesReducer } from './NaniesSlice';
 import { favoriteSlice } from './FavoriteSlice';
 import { userReducer } from '../redux/UserSlice';
+import { filterReducer } from '../redux/FilterSlice';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
@@ -18,6 +19,7 @@ export const store = configureStore({
     nanies: naniesReducer,
     favorite: persistedReducer,
     user: userReducer,
+    filter: filterReducer,
   },
 });
 

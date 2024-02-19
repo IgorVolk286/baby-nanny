@@ -10,12 +10,14 @@ import {
 import {
   getAllNanie,
   selectNaniesList,
+  selectfilteredNanies,
   setLoadind,
 } from '../../redux/NaniesSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { db } from '../../firebase';
 import { getDatabase, ref, child, get } from 'firebase/database';
+import { actualPosition } from '../../redux/FilterSlice';
 
 const options = [
   'Z to A',
@@ -23,10 +25,10 @@ const options = [
   'Greater than 10$',
   'Popular',
   'Not popular',
-  'Show all',
 ];
 
 export const NannysList = () => {
+  const [select, setSelect] = useState('A to Z');
   const [limit, setLimit] = useState(3);
   const dispatch = useDispatch();
   console.log(db);
@@ -47,13 +49,29 @@ export const NannysList = () => {
       });
   }, [dispatch]);
 
-  const nanyList = useSelector(selectNaniesList);
-  const paglist = nanyList.slice(0, limit);
+  const handler = e => {
+    e.preventDefault();
+    setSelect(e.target.value);
+    dispatch(actualPosition(e.target.value));
+    setLimit(3);
+  };
+
+  // const nanyList = useSelector(selectNaniesList);
+  // const paglist = nanyList.slice(0, limit);
+
+  const filteredNanies = useSelector(selectfilteredNanies);
+  console.log(filteredNanies);
+  const paglist = filteredNanies.slice(0, limit);
   return (
     <>
       <Form>
         <Label>
-          <Selects name="" id="">
+          <Selects
+            name="select"
+            id="position"
+            value={select}
+            onChange={handler}
+          >
             <option selected> A to Z </option>
             {options.map(option => (
               <option key={option} value={option}>
@@ -62,13 +80,14 @@ export const NannysList = () => {
             ))}
           </Selects>
         </Label>
+        {/* <button type="submit">Find</button> */}
       </Form>
       <List>
         {paglist.map(nanny => (
           <NanyItem nany={nanny} key={nanny.id} />
         ))}
       </List>
-      {paglist.length !== nanyList.length && (
+      {paglist.length !== filteredNanies.length && (
         <Button type="button" onClick={() => setLimit(limit + 3)}>
           Load more
         </Button>

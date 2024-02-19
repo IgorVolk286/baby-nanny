@@ -14,7 +14,7 @@ export const Container = styled.div`
   align-items: center;
 
   @media (min-width: 768px) {
-    width: 100%;
+    width: 768px;
     padding: 10px 32px;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
