@@ -33,9 +33,7 @@ export const Hard = styled(IconNorm)`
   height: 10px;
   stroke: black;
   stroke-width: 2px;
-  position: absolute;
-  top: 5px;
-  right: 5px;
+
   @media (min-width: 768px) {
     width: 22px;
     height: 19px;
@@ -233,6 +231,12 @@ export const WrapAbout = styled.div`
 export const ButtonFavorite = styled.button`
   background-color: transparent;
   margin-left: 50px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  @media (min-width: 768px) {
+    position: static;
+  }
 `;
 
 export const SpanN = styled.span`

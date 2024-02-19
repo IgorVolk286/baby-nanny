@@ -93,6 +93,7 @@ export const Title = styled.h1`
   font-weight: 500;
   line-height: 30px;
   letter-spacing: -2%;
+  margin-top: 10px;
   margin-bottom: 10px;
 
   @media (min-width: 768px) {
@@ -188,5 +189,5 @@ export const P = styled.p`
 export const Wrap = styled.div`
   width: 100%;
   padding: 0px;
-  height: 740px;
+  height: auto;
 `;

@@ -89,7 +89,6 @@ export const Appointment = ({ nany }) => {
           <Button type="submit">Send</Button>
         </Forma>
       </Formik>
-      ;
     </Wrap>
   );
 };
