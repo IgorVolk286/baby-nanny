@@ -9,7 +9,7 @@ import {
 } from '../NannysList/NannysList.styled';
 import {
   getAllNanie,
-  selectNaniesList,
+  // selectNaniesList,
   selectfilteredNanies,
   setLoadind,
 } from '../../redux/NaniesSlice';
