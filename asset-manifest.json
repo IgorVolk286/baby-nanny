@@ -1,7 +1,8 @@
 {
   "files": {
     "main.css": "/baby-nanny/static/css/main.a8857737.css",
-    "main.js": "/baby-nanny/static/js/main.d84a9dbb.js",
+    "main.js": "/baby-nanny/static/js/main.1a41e011.js",
+    "static/media/background.png": "/baby-nanny/static/media/background.1a4de8dcaf52de68ff1d.png",
     "static/media/baby-svgrepo-com.svg": "/baby-nanny/static/media/baby-svgrepo-com.d3510334ba8c0d31348055e8a0bfc374.svg",
     "static/media/star.svg": "/baby-nanny/static/media/star.830a67701daba7d953fc77448b5f9dfe.svg",
     "static/media/map.svg": "/baby-nanny/static/media/map.2dc36ba9cd0fd2355bcaa6c8184af76e.svg",
@@ -13,10 +14,10 @@
     "static/media/x.svg": "/baby-nanny/static/media/x.f3cbdd58dc25ca7cbb3d242106b56fb9.svg",
     "static/media/pin.svg": "/baby-nanny/static/media/pin.403e9c6c733ca1d1bbf57adb6fbe01b3.svg",
     "main.a8857737.css.map": "/baby-nanny/static/css/main.a8857737.css.map",
-    "main.d84a9dbb.js.map": "/baby-nanny/static/js/main.d84a9dbb.js.map"
+    "main.1a41e011.js.map": "/baby-nanny/static/js/main.1a41e011.js.map"
   },
   "entrypoints": [
     "static/css/main.a8857737.css",
-    "static/js/main.d84a9dbb.js"
+    "static/js/main.1a41e011.js"
   ]
 }
