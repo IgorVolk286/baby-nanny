@@ -78,7 +78,6 @@ export const NannysList = () => {
             ))}
           </Selects>
         </Label>
-        {/* <button type="submit">Find</button> */}
       </Form>
       {isLoading && (
         <CirclesWithBar

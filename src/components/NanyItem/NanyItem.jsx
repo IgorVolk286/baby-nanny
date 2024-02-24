@@ -39,6 +39,7 @@ import {
 } from '../../redux/FavoriteSlice';
 import { selectNaniesList } from '../../redux/NaniesSlice';
 import { selectIsLogin } from '../../redux/UserSlice';
+import toast from 'react-hot-toast';
 export const NanyItem = ({ nany }) => {
   const now = new Date().getFullYear();
 
@@ -56,9 +57,9 @@ export const NanyItem = ({ nany }) => {
     const idCurrent = e.currentTarget.id;
     const index = holder.findIndex(item => item.id === idCurrent);
     const newNany = nanyList.find(item => item.id === idCurrent);
-    console.log(newNany);
+
     if (!isLogin) {
-      console.log(alert('залогинся'));
+      toast.error('You must to login');
       return;
     } else if (index !== -1) {
       dispatch(delNany(idCurrent));
