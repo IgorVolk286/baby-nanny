@@ -35,6 +35,12 @@ export const Modal = styled.div`
     padding: 64px;
     border-radius: 24px;
   }
+  @media (min-width: 1440px) {
+    width: 600px;
+    height: auto;
+    padding: 64px;
+    border-radius: 24px;
+  }
 `;
 export const Svg = styled(IconX)`
   width: 16px;

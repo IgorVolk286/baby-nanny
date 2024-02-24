@@ -5,7 +5,7 @@ import './index.css';
 import { GlobalStyles } from 'GlobalStyle';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import { store, persistor } from '../src/redux/store.js';
+import { store, persistor } from '../src/redux/store.jsx';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Toaster } from 'react-hot-toast';
 

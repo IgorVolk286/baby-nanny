@@ -4,7 +4,7 @@ import { Button, Title, P, Input, Wrap } from './login.styled';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { setUser } from '../../redux/UserSlice';
 import { useDispatch } from 'react-redux';
-
+import toast from 'react-hot-toast';
 const SignInSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Required'),
   password: Yup.string()
@@ -20,17 +20,18 @@ export const Login = () => {
     signInWithEmailAndPassword(auth, values.email, values.password)
       .then(userCredential => {
         const user = userCredential.user;
+        toast.success(`Welcome ${user.displayName}`);
         console.log(user);
         const newUser = {
           id: user.uid,
           token: user.accessToken,
           email: user.email,
+          name: user.displayName,
         };
         dispatch(setUser(newUser));
       })
       .catch(error => {
-        const errorMessage = error.message;
-        console.log(errorMessage);
+        toast.error('Wron email or password');
       });
   };
 

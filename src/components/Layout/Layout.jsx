@@ -21,7 +21,7 @@ import {
   Menu,
   ButtonMenu,
 } from './Layout.styles';
-import { selectIsLogin, logOut } from '../../redux/UserSlice';
+import { selectIsLogin, logOut, selectName } from '../../redux/UserSlice';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { useState, useRef } from 'react';
@@ -34,7 +34,7 @@ export const Layout = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isLogin = useSelector(selectIsLogin);
-
+  const name = useSelector(selectName);
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenReg, setIsOpenReg] = useState(false);
 
@@ -104,7 +104,7 @@ export const Layout = () => {
                 <IconDiv>
                   <IconLogoUser />
                 </IconDiv>
-                <Name>name</Name>
+                <Name>{name}</Name>
                 <ButtonlogOut onClick={logOuts}>Log Out</ButtonlogOut>
               </DivButton>
             </Nav>
@@ -153,7 +153,7 @@ export const Layout = () => {
                 </ButtonReg>
                 {isOpenReg && (
                   <Modalca toggleModal={toggleModalReg}>
-                    <RegistrationForm />
+                    <RegistrationForm toggleModal={toggleModalReg} />
                   </Modalca>
                 )}
               </DivButton>

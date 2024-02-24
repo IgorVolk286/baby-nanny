@@ -58,7 +58,7 @@ export const NannysList = () => {
   };
 
   const filteredNanies = useSelector(selectfilteredNanies);
-  console.log(filteredNanies);
+
   const paglist = filteredNanies.slice(0, limit);
   return (
     <>

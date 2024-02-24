@@ -1,7 +1,12 @@
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { Button, Title, P, Input, Wrap } from './RegistrationForm.styled';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from 'firebase/auth';
+import toast from 'react-hot-toast';
 // import { setUser } from '../../redux/UserSlice';
 // import { useDispatch } from 'react-redux';
 const SignupSchema = Yup.object().shape({
@@ -16,32 +21,22 @@ const SignupSchema = Yup.object().shape({
     .required('Required'),
 });
 
-export const RegistrationForm = () => {
+export const RegistrationForm = ({ toggleModal }) => {
   const regUser = values => {
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, values.email, values.password)
       .then(userCredential => {
         const user = userCredential.user;
         console.log(user);
+        updateProfile(auth.currentUser, {
+          displayName: values.name,
+        });
+        toast.success('Success , you can login');
       })
       .catch(error => {
         const errorMessage = error.message;
-        console.log(errorMessage);
+        toast.error(errorMessage);
       });
-
-    // updateProfile(auth.currentUser, {
-    //   displayName: `trdgfdvcbvbn`,
-    // })
-    //   .then(() => {
-    //     // Profile updated!
-    //     // ...
-    //     const user = auth.currentUser;
-    //     console.log(user);
-    //   })
-    //   .catch(error => {
-    //     // An error occurred
-    //     // ...
-    //   });
   };
 
   return (
@@ -58,7 +53,10 @@ export const RegistrationForm = () => {
           password: '',
         }}
         validationSchema={SignupSchema}
-        onSubmit={values => regUser(values)}
+        onSubmit={values => {
+          regUser(values);
+          toggleModal();
+        }}
       >
         <Form>
           <label>

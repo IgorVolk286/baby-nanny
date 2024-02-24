@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const userSlice = createSlice({
   name: 'user',
   initialState: {
-    name: 'User',
+    name: '',
     id: '',
     token: '',
     email: '',
@@ -14,6 +14,7 @@ export const userSlice = createSlice({
       state.id = action.payload.id;
       state.token = action.payload.token;
       state.email = action.payload.email;
+      state.name = action.payload.name;
       state.isLogin = true;
       // localStorage.setItem('token', action.payload.token);
     },
@@ -33,3 +34,4 @@ export const userSlice = createSlice({
 export const { setUser, logOut } = userSlice.actions;
 export const userReducer = userSlice.reducer;
 export const selectIsLogin = state => state.user.isLogin;
+export const selectName = state => state.user.name;
