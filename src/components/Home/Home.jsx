@@ -1,4 +1,5 @@
 import { Title, P, NavLin, ButtonGet, Wrap } from './Home.styled';
+
 export const Home = () => {
   return (
     <Wrap>

@@ -1,16 +1,14 @@
-// import { useState } from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
+import { useState } from 'react';
 import {
   List,
   Label,
   Selects,
   Form,
 } from '../FavoriteList/FavoriteList.styled';
-
 import { FavoriteItem } from '../../components/FavoriteItem/FavoriteItem';
-import { selectFavorites } from '../../redux/FavoriteSlice';
-import { useSelector } from 'react-redux';
-
+import { selectfilteredFvorites } from '../../redux/FavoriteSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { actualPositionFavorite } from '../../redux/FilterSlice';
 const options = [
   'Z to A',
   'Less than 10$',
@@ -21,13 +19,21 @@ const options = [
 ];
 
 export const FavoriteList = () => {
-  const holder = useSelector(selectFavorites);
+  const [select, setSelect] = useState('A to Z');
+  const filtered = useSelector(selectfilteredFvorites);
+
+  const dispatch = useDispatch();
+  const handler = e => {
+    e.preventDefault();
+    setSelect(e.target.value);
+    dispatch(actualPositionFavorite(e.target.value));
+  };
 
   return (
     <>
       <Form>
         <Label>
-          <Selects name="" id="">
+          <Selects name="" id="" onChange={handler} value={select}>
             <option selected> A to Z </option>
             {options.map(option => (
               <option key={option} value={option}>
@@ -38,7 +44,7 @@ export const FavoriteList = () => {
         </Label>
       </Form>
       <List>
-        {holder.map(nanny => (
+        {filtered.map(nanny => (
           <FavoriteItem nany={nanny} key={nanny.id} />
         ))}
       </List>

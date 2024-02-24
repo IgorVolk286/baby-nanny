@@ -1,5 +1,6 @@
 import { NavLink, Outlet } from 'react-router-dom';
 import { getAuth, signOut } from 'firebase/auth';
+
 import {
   Logo,
   Link,
@@ -67,6 +68,7 @@ export const Layout = () => {
             <LogoNany />
           </NavLink>
           <Logo to="/"> Nanny.Services </Logo>
+
           {isLogin ? (
             <Nav>
               <NavList>
