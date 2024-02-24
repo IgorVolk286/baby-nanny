@@ -17,7 +17,7 @@ export const Container = styled.div`
 
   @media (min-width: 768px) {
     width: 768px;
-    height: auto;
+
     padding: 64px 32px;
     background: rgb(243, 243, 243);
     margin: 0px auto;

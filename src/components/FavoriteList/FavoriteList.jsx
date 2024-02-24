@@ -9,6 +9,7 @@ import { FavoriteItem } from '../../components/FavoriteItem/FavoriteItem';
 import { selectfilteredFvorites } from '../../redux/FavoriteSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { actualPositionFavorite } from '../../redux/FilterSlice';
+import { FavoriteEmpty } from '../../components/FavoriteEmpty/FavoriteEmpty';
 const options = [
   'Z to A',
   'Less than 10$',
@@ -43,11 +44,15 @@ export const FavoriteList = () => {
           </Selects>
         </Label>
       </Form>
-      <List>
-        {filtered.map(nanny => (
-          <FavoriteItem nany={nanny} key={nanny.id} />
-        ))}
-      </List>
+      {filtered.length !== 0 ? (
+        <List>
+          {filtered.map(nanny => (
+            <FavoriteItem nany={nanny} key={nanny.id} />
+          ))}
+        </List>
+      ) : (
+        <FavoriteEmpty />
+      )}
     </>
   );
 };

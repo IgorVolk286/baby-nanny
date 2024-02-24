@@ -5,8 +5,6 @@ export const favoriteSlice = createSlice({
   name: 'favorite',
   initialState: {
     favorites: [],
-    isLoading: false,
-    isLogin: true,
   },
   reducers: {
     createFavoriveNany(state, { payload }) {

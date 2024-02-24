@@ -16,7 +16,7 @@ export const userSlice = createSlice({
       state.email = action.payload.email;
       state.name = action.payload.name;
       state.isLogin = true;
-      // localStorage.setItem('token', action.payload.token);
+      localStorage.setItem('token', action.payload.token);
     },
     refreshuser(state, action) {
       state.isLogin = true;
@@ -27,6 +27,7 @@ export const userSlice = createSlice({
       state.token = '';
       state.email = '';
       state.isLogin = false;
+      localStorage.removeItem('token');
     },
   },
 });
