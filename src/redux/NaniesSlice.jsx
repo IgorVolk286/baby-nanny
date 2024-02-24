@@ -21,6 +21,7 @@ const naniesSlice = createSlice({
 export const naniesReducer = naniesSlice.reducer;
 
 export const selectNaniesList = state => state.nanies.naniesList;
+export const selectIsLoading = state => state.nanies.isLoading;
 export const { getAllNanie, setLoadind } = naniesSlice.actions;
 
 export const selectfilteredNanies = createSelector(

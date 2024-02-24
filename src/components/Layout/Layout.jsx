@@ -22,6 +22,7 @@ import {
   ButtonMenu,
 } from './Layout.styles';
 import { selectIsLogin, logOut } from '../../redux/UserSlice';
+
 import { useSelector, useDispatch } from 'react-redux';
 import { useState, useRef } from 'react';
 import { Modalca } from 'components/Modal/Modal';
@@ -33,9 +34,10 @@ export const Layout = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isLogin = useSelector(selectIsLogin);
+
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenReg, setIsOpenReg] = useState(false);
-  console.log(isOpenReg);
+
   const [menu, setMenu] = useState(false);
 
   const toggleModal = e => {

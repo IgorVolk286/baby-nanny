@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { NanyItem } from '../NanyItem/NanyItem';
+import { CirclesWithBar } from 'react-loader-spinner';
 import {
   List,
   Button,
@@ -9,12 +10,11 @@ import {
 } from '../NannysList/NannysList.styled';
 import {
   getAllNanie,
-  // selectNaniesList,
   selectfilteredNanies,
   setLoadind,
 } from '../../redux/NaniesSlice';
 import { useSelector, useDispatch } from 'react-redux';
-
+import { selectIsLoading } from '../../redux/NaniesSlice';
 import { db } from '../../firebase';
 import { getDatabase, ref, child, get } from 'firebase/database';
 import { actualPosition } from '../../redux/FilterSlice';
@@ -29,6 +29,7 @@ const options = [
 
 export const NannysList = () => {
   const [select, setSelect] = useState('A to Z');
+  const isLoading = useSelector(selectIsLoading);
   const [limit, setLimit] = useState(3);
   const dispatch = useDispatch();
   console.log(db);
@@ -56,9 +57,6 @@ export const NannysList = () => {
     setLimit(3);
   };
 
-  // const nanyList = useSelector(selectNaniesList);
-  // const paglist = nanyList.slice(0, limit);
-
   const filteredNanies = useSelector(selectfilteredNanies);
   console.log(filteredNanies);
   const paglist = filteredNanies.slice(0, limit);
@@ -82,6 +80,20 @@ export const NannysList = () => {
         </Label>
         {/* <button type="submit">Find</button> */}
       </Form>
+      {isLoading && (
+        <CirclesWithBar
+          height="100"
+          width="100"
+          color="#4fa94d"
+          outerCircleColor="#4fa94d"
+          innerCircleColor="#4fa94d"
+          barColor="#4fa94d"
+          ariaLabel="circles-with-bar-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+        />
+      )}
       <List>
         {paglist.map(nanny => (
           <NanyItem nany={nanny} key={nanny.id} />
