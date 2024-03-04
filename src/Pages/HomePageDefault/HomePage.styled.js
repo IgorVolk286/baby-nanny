@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import background from '../../img/background.png';
 
 export const Container = styled.div`
   width: 100%;
@@ -7,6 +8,7 @@ export const Container = styled.div`
   padding-right: 15px;
   margin: 0px auto;
   background: rgb(16, 57, 49);
+
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   display: flex;
@@ -23,5 +25,7 @@ export const Container = styled.div`
   @media (min-width: 1440px) {
     width: 1440px;
     height: auto;
+    background-image: url(${background});
+    background-size: cover;
   }
 `;
