@@ -42,15 +42,20 @@ import { selectIsLogin } from '../../redux/UserSlice';
 import toast from 'react-hot-toast';
 export const NanyItem = ({ nany }) => {
   const now = new Date().getFullYear();
-
   const dispatch = useDispatch();
   const holder = useSelector(selectFavorites);
   const isLogin = useSelector(selectIsLogin);
   const nanyList = useSelector(selectNaniesList);
   const [show, setShow] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+
   const toggleModal = e => {
     setIsOpen(!isOpen);
+    // if (isOpen) {
+    //   document.body.style.overflow = 'auto';
+    // } else {
+    //   document.body.style.overflow = 'auto';
+    // }
   };
 
   const createFavorite = e => {

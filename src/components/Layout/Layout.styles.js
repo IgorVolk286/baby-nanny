@@ -26,6 +26,11 @@ export const LogoNany = styled(IconLogoNany)`
 
 export const Logo = styled(NavLink)`
   display: none;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    color: red;
+  }
 
   @media (min-width: 768px) {
     display: block;
@@ -127,6 +132,11 @@ export const Link = styled(NavLink)`
   font-weight: 400;
   line-height: 18px;
   letter-spacing: -1%;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    color: red;
+  }
   &.active::after {
     content: '';
     position: absolute;

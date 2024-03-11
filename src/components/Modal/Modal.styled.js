@@ -28,6 +28,7 @@ export const Modal = styled.div`
   position: relative;
   border-radius: 15px;
   background: #ffffff;
+  overflow-y: auto;
 
   @media (min-width: 768px) {
     width: 600px;

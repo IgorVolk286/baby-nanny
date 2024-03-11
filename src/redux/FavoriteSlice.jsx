@@ -23,7 +23,9 @@ export const { delNany, createFavoriveNany } = favoriteSlice.actions;
 export const selectfilteredFvorites = createSelector(
   [selectFavorites, selectFilterFavorite],
   (favorites, filter) => {
-    if (filter === 'A to Z') {
+    if (filter === 'Show all') {
+      return favorites;
+    } else if (filter === 'A to Z') {
       return [...favorites].sort((a, b) => a.name.localeCompare(b.name));
     } else if (filter === 'Z to A') {
       return [...favorites].sort((a, b) => b.name.localeCompare(a.name));

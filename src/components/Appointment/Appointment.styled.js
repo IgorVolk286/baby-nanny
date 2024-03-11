@@ -190,4 +190,5 @@ export const Wrap = styled.div`
   width: 100%;
   padding: 0px;
   height: auto;
+  overflow-y: auto;
 `;
