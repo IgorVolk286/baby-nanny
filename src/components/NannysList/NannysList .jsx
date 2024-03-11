@@ -16,7 +16,7 @@ import {
 } from '../../redux/NaniesSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectIsLoading } from '../../redux/NaniesSlice';
-import { db } from '../../firebase';
+// import { db } from '../../firebase';
 import { getDatabase, ref, child, get } from 'firebase/database';
 import { actualPosition } from '../../redux/FilterSlice';
 
