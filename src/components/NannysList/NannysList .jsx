@@ -16,7 +16,7 @@ import {
 } from '../../redux/NaniesSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectIsLoading } from '../../redux/NaniesSlice';
-// import { db } from '../../firebase';
+import { db } from '../../firebase';
 import { getDatabase, ref, child, get } from 'firebase/database';
 import { actualPosition } from '../../redux/FilterSlice';
 
@@ -33,7 +33,7 @@ export const NannysList = () => {
   const isLoading = useSelector(selectIsLoading);
   const [limit, setLimit] = useState(3);
   const dispatch = useDispatch();
-
+  console.log(db);
   useEffect(() => {
     dispatch(setLoadind());
     const dbRef = ref(getDatabase());
