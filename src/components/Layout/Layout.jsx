@@ -45,6 +45,7 @@ export const Layout = () => {
   };
   const toggleModalReg = e => {
     setIsOpenReg(!isOpenReg);
+    document.body.style.overflow = 'hidden';
   };
   const logOuts = e => {
     const auth = getAuth();

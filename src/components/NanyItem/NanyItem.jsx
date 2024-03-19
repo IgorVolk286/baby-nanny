@@ -51,11 +51,7 @@ export const NanyItem = ({ nany }) => {
 
   const toggleModal = e => {
     setIsOpen(!isOpen);
-    // if (isOpen) {
-    //   document.body.style.overflow = 'auto';
-    // } else {
-    //   document.body.style.overflow = 'auto';
-    // }
+    document.body.style.overflow = isOpen ? 'auto' : '';
   };
 
   const createFavorite = e => {

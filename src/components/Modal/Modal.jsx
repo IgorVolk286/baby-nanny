@@ -8,12 +8,14 @@ export const Modalca = ({ children, toggleModal }) => {
   const onClickBackdrop = e => {
     if (e.target === e.currentTarget) {
       toggleModal();
+      document.body.style.overflow = '';
     }
   };
   useEffect(() => {
     const onEscapeClick = e => {
       if (e.code === 'Escape') {
         toggleModal();
+        document.body.style.overflow = '';
       }
     };
     window.addEventListener('keydown', onEscapeClick);
