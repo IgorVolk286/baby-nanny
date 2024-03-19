@@ -1,4 +1,4 @@
-import { Formik, Form, ErrorMessage } from 'formik';
+import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { Button, Title, P, Input, Wrap, ErrorMes } from './login.styled';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
