@@ -1,10 +1,18 @@
 import styled from 'styled-components';
-import { Field } from 'formik';
+
+import { Field, ErrorMessage } from 'formik';
 export const Wrap = styled.div`
   width: 100%;
   height: auto;
 `;
-
+export const ErrorMes = styled(ErrorMessage)`
+  color: red;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+`;
 export const Title = styled.h1`
   color: rgb(17, 16, 28);
   font-family: Helvetica Neue;

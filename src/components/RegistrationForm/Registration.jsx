@@ -1,6 +1,13 @@
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import { Button, Title, P, Input, Wrap } from './RegistrationForm.styled';
+import {
+  Button,
+  Title,
+  P,
+  Input,
+  Wrap,
+  ErrorMes,
+} from './RegistrationForm.styled';
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -61,13 +68,16 @@ export const RegistrationForm = ({ toggleModal }) => {
         <Form>
           <label>
             <Input name="name" placeholder="Enter your name" />
+            <ErrorMes name="name" component="div" />
           </label>
 
           <label>
             <Input name="email" placeholder="jane@acme.com" type="email" />
+            <ErrorMes name="email" component="div" />
           </label>
           <label>
             <Input name="password" placeholder="Password" type="password" />
+            <ErrorMes name="password" component="div" />
           </label>
           <Button type="submit">Sign Up</Button>
         </Form>

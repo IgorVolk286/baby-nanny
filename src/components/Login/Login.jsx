@@ -1,16 +1,14 @@
-import { Formik, Form } from 'formik';
+import { Formik, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { Button, Title, P, Input, Wrap } from './login.styled';
+import { Button, Title, P, Input, Wrap, ErrorMes } from './login.styled';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { setUser } from '../../redux/UserSlice';
 import { useDispatch } from 'react-redux';
 import toast from 'react-hot-toast';
-const SignInSchema = Yup.object().shape({
+
+const SignInFormSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Required'),
-  password: Yup.string()
-    .min(2, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('Required'),
+  password: Yup.string().min(2, 'Too short! At least 2').required('Required'),
 });
 
 export const Login = () => {
@@ -21,7 +19,7 @@ export const Login = () => {
       .then(userCredential => {
         const user = userCredential.user;
         toast.success(`Welcome ${user.displayName}`);
-        console.log(user);
+
         const newUser = {
           id: user.uid,
           token: user.accessToken,
@@ -47,15 +45,17 @@ export const Login = () => {
           email: '',
           password: '',
         }}
-        validationSchema={SignInSchema}
+        validationSchema={SignInFormSchema}
         onSubmit={values => logIn(values)}
       >
         <Form>
           <label>
             <Input name="email" placeholder="jane@acme.com" type="email" />
+            <ErrorMes name="email" component="div" />
           </label>
           <label>
             <Input name="password" placeholder="Password" type="password" />
+            <ErrorMes name="password" component="div" />
           </label>
           <Button type="submit">Log in</Button>
         </Form>

@@ -2,6 +2,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import {
   Title,
+  ErrorMes,
   P,
   Input,
   Button,
@@ -22,11 +23,11 @@ const AppointmentSchema = Yup.object().shape({
     .required('Required'),
 
   childAge: Yup.string().required('Required'),
-  phone: Yup.string().required('Required'),
+  phone: Yup.string().required('Enter your phone'),
   time: Yup.string().required('Required'),
   email: Yup.string().email('Invalid email').required('Required'),
-  parents: Yup.string().required('Required'),
-  comment: Yup.string().required('Required'),
+  parents: Yup.string().required('Name parents is required '),
+  comment: Yup.string().required('Comment must to be 10 coints'),
 });
 
 export const Appointment = ({ nany }) => {
@@ -64,26 +65,33 @@ export const Appointment = ({ nany }) => {
         <Forma>
           <label>
             <Input name="address" placeholder="Address" />
+            <ErrorMes name="address" component="div" />
           </label>
           <label>
             <Input name="phone" placeholder="+380" />
+            <ErrorMes name="phone" component="div" />
           </label>
           <label>
             <Input name="childAge" placeholder="Child's age" />
+            <ErrorMes name="childAge" component="div" />
           </label>
           <label>
             <Input name="time" placeholder="00:00" type="time" />
+            <ErrorMes name="time" component="div" />
           </label>
           <label>
             <InputOne name="parents" placeholder="Father's or mother's name" />
+            <ErrorMes name="parent" component="div" />
           </label>
 
           <label>
             <InputOne name="email" placeholder="jane@acme.com" type="email" />
+            <ErrorMes name="email" component="div" />
           </label>
 
           <label>
             <InputAria name="comment" placeholder="Comment" />
+            <ErrorMes name="comment" component="div" />
           </label>
 
           <Button type="submit">Send</Button>

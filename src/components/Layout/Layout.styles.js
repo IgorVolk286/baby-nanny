@@ -106,9 +106,9 @@ export const ButtonlogOut = styled.button`
     line-height: 15px;
     padding: 10px 30px;
     border-radius: 20px;
-    padding: 14px 39px;
+
     border: 1px solid rgba(251, 251, 251, 0.4);
-    border-radius: 30px;
+
     &:hover {
       color: var(--main-color--);
       background-color: #ffffff;

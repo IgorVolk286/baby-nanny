@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Field, Form } from 'formik';
+import { Field, Form, ErrorMessage } from 'formik';
 
 export const Input = styled(Field)`
   display: block;
@@ -191,4 +191,12 @@ export const Wrap = styled.div`
   padding: 0px;
   height: auto;
   overflow-y: auto;
+`;
+export const ErrorMes = styled(ErrorMessage)`
+  color: red;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
 `;
