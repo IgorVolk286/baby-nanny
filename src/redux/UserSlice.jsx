@@ -18,10 +18,6 @@ export const userSlice = createSlice({
       state.isLogin = true;
       localStorage.setItem('token', action.payload.token);
     },
-    refreshuser(state, action) {
-      state.isLogin = true;
-    },
-
     logOut(state, action) {
       state.id = '';
       state.token = '';

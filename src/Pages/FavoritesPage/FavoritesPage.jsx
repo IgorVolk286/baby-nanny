@@ -8,7 +8,6 @@ export const FavoritesPage = () => {
 
   return (
     <>
-      {/* <Container>{favorit.length ? <FavoriteList /> : <Default />}</Container> */}
       <Container>
         <FavoriteList />
       </Container>
