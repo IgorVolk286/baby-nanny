@@ -40,6 +40,7 @@ import {
 import { selectNaniesList } from '../../redux/NaniesSlice';
 import { selectIsLogin } from '../../redux/UserSlice';
 import toast from 'react-hot-toast';
+
 export const NanyItem = ({ nany }) => {
   const now = new Date().getFullYear();
   const dispatch = useDispatch();
@@ -51,8 +52,9 @@ export const NanyItem = ({ nany }) => {
 
   const toggleModal = e => {
     setIsOpen(!isOpen);
-    document.body.style.overflow = isOpen ? 'auto' : '';
   };
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+  console.log(window.getComputedStyle(document.body).overflow);
 
   const createFavorite = e => {
     const idCurrent = e.currentTarget.id;
@@ -158,7 +160,7 @@ export const NanyItem = ({ nany }) => {
                 })}
               </ul>
               {isOpen && (
-                <Modalca toggleModal={toggleModal}>
+                <Modalca toggleModal={toggleModal} isOpen={isOpen}>
                   <Appointment nany={nany} />
                 </Modalca>
               )}

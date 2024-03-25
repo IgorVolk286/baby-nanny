@@ -11,7 +11,7 @@ export const OverLay = styled.div`
   height: 100%;
   background: rgba(18, 20, 23, 0.5);
   padding: 40px 0;
-  z-index: 1000;
+  z-index: 500;
 `;
 export const ButtonClose = styled.button`
   display: block;
@@ -25,6 +25,7 @@ export const ButtonClose = styled.button`
 export const Modal = styled.div`
   width: 300px;
   height: 650px;
+  height: auto;
   padding: 15px;
   position: relative;
   border-radius: 15px;
@@ -32,14 +33,14 @@ export const Modal = styled.div`
   overflow-y: auto;
 
   @media (min-width: 768px) {
-    width: 600px;
-    height: auto;
+    width: 620px;
+    height: 700px;
     padding: 64px;
     border-radius: 24px;
   }
   @media (min-width: 1440px) {
-    width: 600px;
-    height: auto;
+    width: 620px;
+    height: 700px;
     padding: 64px;
     border-radius: 24px;
   }

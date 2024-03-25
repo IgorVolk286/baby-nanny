@@ -8,9 +8,11 @@ import { useEffect } from 'react';
 import { setUser } from '../redux/UserSlice';
 import { useDispatch } from 'react-redux';
 import { PrivateRoute } from '../PrivateRoute';
+
 // const HomePage = lazy(() => import('Pages/HomePageDefault/HomeDefault'));
 // const NannysPage = lazy(() => import('Pages/NannysPage/NannysPage'));
 // const FavoritesPage = lazy(() => import('Pages/FavoritesPage/FavoritesPage'));
+
 export const App = () => {
   const dispatch = useDispatch();
 

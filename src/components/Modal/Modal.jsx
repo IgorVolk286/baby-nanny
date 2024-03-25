@@ -4,18 +4,21 @@ import { OverLay, ButtonClose, Modal, Svg } from '../Modal/Modal.styled';
 
 const modalElement = document.getElementById('portal');
 
-export const Modalca = ({ children, toggleModal }) => {
+export const Modalca = ({ children, toggleModal, isOpen }) => {
+  // if (isOpen) {
+  //   document.body.style.overflow = 'hidden';
+  // } else {
+  //   document.body.style.overflow = 'auto';
+  // }
   const onClickBackdrop = e => {
     if (e.target === e.currentTarget) {
       toggleModal();
-      document.body.style.overflow = '';
     }
   };
   useEffect(() => {
     const onEscapeClick = e => {
       if (e.code === 'Escape') {
         toggleModal();
-        document.body.style.overflow = '';
       }
     };
     window.addEventListener('keydown', onEscapeClick);
